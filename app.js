@@ -3,7 +3,7 @@ var path = require('path');
 var app = express();
 
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
-var port      = process.env.OPENSHIFT_NODEJS_PORT || 1000;
+var port      = process.env.OPENSHIFT_NODEJS_PORT || 1990;
 
 var routes = require('./routes/index');
 
@@ -16,7 +16,7 @@ app.use('/', routes);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(port,ipaddress,function(){
-	console.log('listining to port 1000');
+	console.log('listining to port 1990');
 });
 
 module.exports = app;
