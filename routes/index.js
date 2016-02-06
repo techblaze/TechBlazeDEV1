@@ -5,7 +5,7 @@ var dbUrl = '127.0.0.1:27017/TechBlaze';
 
 var user = require('../models/user').user;
 
-//if OPENSHIFT env variables are present, use the available connection info:
+//if OPENSHIFT env variables  present, use the available connection info:
 if (process.env.OPENSHIFT_MONGODB_DB_URL) {
 	dbUrl = process.env.OPENSHIFT_MONGODB_DB_URL +
     process.env.OPENSHIFT_APP_NAME;
