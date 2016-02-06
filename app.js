@@ -7,7 +7,6 @@ var port      = process.env.OPENSHIFT_NODEJS_PORT || 1990;
 
 var routes = require('./routes/index');
 
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

@@ -1,5 +1,58 @@
-extends layout
+doctype html
+html(lang='en', ng-app='TechBlaze')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title= title 
+    // Bootstrap Core CSS
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    // Custom CSS
+    link(href='/css/blog-post.css', rel='stylesheet')
+    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+  body
+    // Navigation
+    nav.navbar.navbar-fixed-top.navStyle(role='navigation')
+      .container
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span.sr-only Toggle navigation
+          a.navbar-brand(href='#')
+            img(src='/images/logo_TechBlaze.jpg', alt='Smiley face', width='130')
+      // /.container
+    // Page Content
+    .container
+      div(ng-controller='StoreController as Store')
+        ul.list-group
+          li.list-group-item(ng-repeat='pro in Store.product')
+            h3
+              |{{pro.name}}
+              em.pull-right {{pro.price | currency}}
+            section(ng-controller='PanelController as panel')
+              ul.nav.nav-pills
+                li(ng-class='{ active:tab === 1 }')
+                  a(href='', ng-click='panel.selectedTab(1)') Description
+                li(ng-class='{ active:tab === 2 }')
+                  a(href='', ng-click='panel.selectedTab(2)') Specifications
+                li(ng-class='{ active:tab === 3 }')
+                  a(href='', ng-click='panel.selectedTab(3)') Reviews
+              .panel(ng-show='panel.isSelected(1)')
+                h4 Description
+                p {{pro.description}}
+              .panel(ng-show='tab===2')
+                h4 Specifications
+                p {{pro.price}}
 
-block content  
-  h1= title
-  p Welcome to #{title}
+    // jQuery
+    script(src='/js/jquery.js')
+    // Bootstrap Core JavaScript
+    script(src='/js/bootstrap.min.js')
+    script(type='text/javascript', src='/js/angular.min.js')
+    script(type='text/javascript', src='/js/app.js')
