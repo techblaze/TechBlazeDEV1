@@ -4,6 +4,7 @@ var app = express();
 var mongoose   = require('mongoose');
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
 var port      = process.env.OPENSHIFT_NODEJS_PORT || 1992;
+var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 
@@ -11,6 +12,7 @@ var routes = require('./routes/index');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+app.use(bodyParser.json());
 app.use('/', routes);
 app.use(express.static(path.join(__dirname, 'public')));
 
