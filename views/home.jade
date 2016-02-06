@@ -6,7 +6,7 @@ html(lang='en', ng-app='TechBlaze')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     meta(name='description', content='')
     meta(name='author', content='')
-    title= title 
+    title= home.title 
     // Bootstrap Core CSS
     link(href='/css/bootstrap.min.css', rel='stylesheet')
     // Custom CSS
@@ -24,32 +24,25 @@ html(lang='en', ng-app='TechBlaze')
         .navbar-header
           button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
             span.sr-only Toggle navigation
-          a.navbar-brand(href='#')
-            img(src='/images/logo_TechBlaze.jpg', alt='Smiley face', width='130')
       // /.container
     // Page Content
     .container
-      div(ng-controller='StoreController as Store')
+      div(ng-controller='UserController as UserCon')
+        div(class="text-center")
+          h4
+            | Number of Registered Users in TechBlaze is #{ home.UserCount }
+        
         ul.list-group
-          li.list-group-item(ng-repeat='pro in Store.product')
-            h3
-              |{{pro.name}}
-              em.pull-right {{pro.price | currency}}
-            section(ng-controller='PanelController as panel')
-              ul.nav.nav-pills
-                li(ng-class='{ active:tab === 1 }')
-                  a(href='', ng-click='panel.selectedTab(1)') Description
-                li(ng-class='{ active:tab === 2 }')
-                  a(href='', ng-click='panel.selectedTab(2)') Specifications
-                li(ng-class='{ active:tab === 3 }')
-                  a(href='', ng-click='panel.selectedTab(3)') Reviews
-              .panel(ng-show='panel.isSelected(1)')
-                h4 Description
-                p {{pro.description}}
-              .panel(ng-show='tab===2')
-                h4 Specifications
-                p {{pro.price}}
+          li.list-group-item(ng-repeat='user in UserCon.userlist')
+            p
+              |{{user.name}}
+              em.pull-right {{user.price | currency}}
 
+        form(ng-submit='UserCon.AddUser()',class="text-center")
+          input(type='text',placeholder="User Name",ng-model="Name")
+          br
+          hr
+          button(type='submit',class="btn-primary") Add User
     // jQuery
     script(src='/js/jquery.js')
     // Bootstrap Core JavaScript
