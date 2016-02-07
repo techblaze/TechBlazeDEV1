@@ -18,4 +18,11 @@ app.controller('UserController', ['$scope','$resource',function($scope,$resource
     	$scope.Name = '';
     }
 	
+	//delete all Users
+	$scope.DeleteAllUsers = function(){	
+		var user = new User();
+		user.$delete();	
+		$scope.userlist = []; 
+	}	
+	
 }]);   
