@@ -13,4 +13,6 @@ router.post('/api/users', userController.create);
 /* Get All Users */
 router.get('/api/users', userController.GetAllUsers);
 
+router.delete('/api/users', userController.DeleteAllUsers);
+
 module.exports = router;

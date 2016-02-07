@@ -4,6 +4,7 @@ app.controller('UserController', ['$scope','$resource',function($scope,$resource
 	// Query in database to get list of all users
 	var users = User.query(function(){		
 		$scope.userlist = users;
+		console.log('CLient'+users);
 	});
 	
 	// Create User
@@ -16,4 +17,5 @@ app.controller('UserController', ['$scope','$resource',function($scope,$resource
     	});
     	$scope.Name = '';
     }
+	
 }]);   
