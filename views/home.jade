@@ -10,7 +10,8 @@ html(lang='en', ng-app='TechBlaze')
     // Bootstrap Core 
     link(href='/css/bootstrap.min.css', rel='stylesheet')
     // Custom CSS
-    link(href='/css/blog-post.css', rel='stylesheet')
+    link(href='/css/blog-post.css', rel='stylesheet')    
+    link(href='/css/font-awesome.min.css', rel='stylesheet')
     // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
     // WARNING: Respond.js doesn't work if you view the page via file://
     //if lt IE 9
@@ -18,21 +19,31 @@ html(lang='en', ng-app='TechBlaze')
       script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
   body
     // Navigation
-    nav.navbar.navbar-fixed-top.navStyle(role='navigation')
-      .container        
+    nav.navbar.navbar-default.navbar-fixed-top.navStyle(role='navigation')         
+      .container     
         // Brand and toggle get grouped for better mobile display
         .navbar-header
           button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
             span.sr-only Toggle navigation
+          a.navbar-brand(href='#')
+            img(src='/images/logo_TechBlaze 2.png', alt='Smiley face', width='130')  
+                                                                         
       // /.container
     // Page Content
-    .container
-      img(src='/images/logo_TechBlaze.jpg', alt='Smiley face', width='130')
-      div(ng-controller='UserController as UserCon')
+    .container      
+      .row
+        .col-lg-12.text-center
+          h1 Welcome to TechBlaze
+          p.lead Open Source Community
+          p.lead Sign up to TechBlaze to Join the Community           
+          button(class='button',class="btn-Custom",class="btn-primary",class="btn-lg") Sign Up
+          &nbsp;&nbsp;   
+          a(href="") SIGN IN          
+            
+      div(ng-controller='UserController as UserCon',ng-hide="true")
         div(class="text-center")          
           h4
-            | Number of Registered Users in TechBlaze is {{userlist.length}}
-        
+            | Number of Registered Users in TechBlaze is {{userlist.length}}        
         ul.list-group
           li.list-group-item(ng-repeat='user in userlist')
             p
@@ -47,7 +58,36 @@ html(lang='en', ng-app='TechBlaze')
           br
           br 
         div(class="text-center")         
-          button(class='button',class="btn-primary",ng-click="DeleteAllUsers()") Delete All
+          button(class='button',class="btn-primary",ng-click="DeleteAllUsers()") Delete All          
+    
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br                    
+    //
+      Footer
+      ==========================
+    footer
+      .container(ng-controller='UserController as UserCon')
+        .row
+          .span6
+            | Copyright &copy 2016 TechBlaze | All Rights Reserved  
+            br            
+          .span6
+            .social.pull-right
+              p 
+                | Number of Registered Users : {{userlist.length}} 
+    // /.Footer
+          
     // jQuery
     script(src='/js/jquery.js')
     // Bootstrap Core JavaScript

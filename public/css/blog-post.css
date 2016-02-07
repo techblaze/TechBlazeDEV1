@@ -3,7 +3,7 @@
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
-
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,300,800);
 body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
     background-color: #FEFAFF;
@@ -20,6 +20,7 @@ footer {
     border-bottom-width: 0px;
     border-left-width: 0px;
     height: 0;
+    background-color: #FEFAFF;
 }
 
 .noBorder{
@@ -37,11 +38,11 @@ footer {
     background-color:white; 
 }
 
-.btn-primary{
+.btn-Custom,.btn-Custom:focus{
     background-color: #bf00ff;
     border-style: none;
 }
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+.btn-Custom:hover, .btn-Custom:active, .btn-Custom.active, .open > .dropdown-toggle.btn-Custom {
     background-color: #DF80FF;
 }
 .left {
