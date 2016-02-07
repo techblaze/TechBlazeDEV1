@@ -19,7 +19,7 @@ html(lang='en', ng-app='TechBlaze')
   body
     // Navigation
     nav.navbar.navbar-fixed-top.navStyle(role='navigation')
-      .container
+      .container        
         // Brand and toggle get grouped for better mobile display
         .navbar-header
           button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
@@ -27,6 +27,7 @@ html(lang='en', ng-app='TechBlaze')
       // /.container
     // Page Content
     .container
+      img(src='/images/logo_TechBlaze.jpg', alt='Smiley face', width='130')
       div(ng-controller='UserController as UserCon')
         div(class="text-center")          
           h4
@@ -50,3 +51,4 @@ html(lang='en', ng-app='TechBlaze')
     script(type='text/javascript', src='/js/angular/angular.js')
     script(type='text/javascript', src='/js/angular/angular-resource.js')       
     script(type='text/javascript', src='/js/angular/app.js')
+    script(type='text/javascript', src='/js/angular/controller/user-controller.js')
