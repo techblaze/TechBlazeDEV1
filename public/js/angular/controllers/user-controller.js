@@ -1,6 +1,8 @@
 app.controller('UserController', ['$scope','$resource',function($scope,$resource) {
 	var User = $resource('/api/users');
 	$scope.userlist = []; 
+	$scope.SignUp = false;
+	$scope.UserFormHeading = 'Login to TechBlaze';
 	// Query in database to get list of all users
 	var users = User.query(function(){		
 		$scope.userlist = users;
@@ -24,5 +26,16 @@ app.controller('UserController', ['$scope','$resource',function($scope,$resource
 		user.$delete();	
 		$scope.userlist = []; 
 	}	
+	
+	$scope.ChangeAction = function(){
+		console.log('********--'+$scope.SignUp);
+		if($scope.SignUp){
+			$scope.SignUp = false;
+		}else{
+			$scope.SignUp = true;
+			$scope.UserFormHeading = 'Sign Up in to TechBlaze';
+		}		 
+	}
+		
 	
 }]);   

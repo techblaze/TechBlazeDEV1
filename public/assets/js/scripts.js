@@ -11,23 +11,6 @@ var appMaster = {
         }
     },
 
-    smoothScroll: function() {
-        // Smooth Scrolling
-        $('a[href*=#]:not([href=#carousel-example-generic])').click(function() {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
-                }
-            }
-        });
-    },
-
     reviewsCarousel: function() {
         // Reviews Carousel
         $('.review-filtering').slick({
@@ -153,8 +136,7 @@ var appMaster = {
 
 
 $(document).ready(function() {
-
-    appMaster.smoothScroll();
+    
 
     appMaster.reviewsCarousel();
 
