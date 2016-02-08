@@ -31,6 +31,7 @@ app.controller('UserController', ['$scope','$resource',function($scope,$resource
 		console.log('********--'+$scope.SignUp);
 		if($scope.SignUp){
 			$scope.SignUp = false;
+			$scope.UserFormHeading = 'Login to TechBlaze';
 		}else{
 			$scope.SignUp = true;
 			$scope.UserFormHeading = 'Sign Up in to TechBlaze';
